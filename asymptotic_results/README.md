@@ -1,5 +1,3 @@
-# Monotonic Risk Relationships under Distribution Shifts for Regularized Risk Minimization
-
 ## Figures 2, 3, and 6
 
 To generate Figure 2, run the notebook `Simulation.ipynb`.
