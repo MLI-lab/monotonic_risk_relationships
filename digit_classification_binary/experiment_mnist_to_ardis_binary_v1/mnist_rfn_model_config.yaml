@@ -1,0 +1,75 @@
+train:
+    model_class: 
+        name: mnist_models.RFNMNIST
+        kwargs:
+            num_classes: 2
+    loss_function: 
+        name: torch.nn.CrossEntropyLoss 
+    # optimizer:
+    #     name: torch.optim.SGD
+    #     kwargs:
+    #         lr: 0.0001
+    #         momentum: 0.8
+    optimizer:
+        name: torch.optim.Adam
+        kwargs:
+            lr: 0.01
+    lr_scheduler:
+        name: torch.optim.lr_scheduler.StepLR
+        kwargs:
+            step_size: 10
+            gamma: 0.1
+    num_epochs: 30
+    save_ckpt: True
+    save_dir: ./mnist_binary_ckpt_v1
+evaluate:
+    model_class: 
+        name: mnist_models.RFNMNIST
+        kwargs:
+            num_classes: 2
+    loss_function: 
+        name: torch.nn.CrossEntropyLoss 
+    ckpt:
+        rfn64: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn64_ce_adam0.0001_ep20_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn64_ce_adam0.0001_ep20_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn64_ce_adam0.0001_ep20_bs10_s3001.pt
+              seed: 3001
+        rfn128: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn128_ce_adam0.0001_ep20_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn128_ce_adam0.0001_ep20_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn128_ce_adam0.0001_ep20_bs10_s3001.pt
+              seed: 3001
+        rfn256: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn256_ce_adam0.0001_ep20_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn256_ce_adam0.0001_ep20_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn256_ce_adam0.0001_ep20_bs10_s3001.pt
+              seed: 3001
+        rfn512: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn512_ce_adam0.0001_ep20_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn512_ce_adam0.0001_ep20_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn512_ce_adam0.0001_ep20_bs10_s3001.pt
+              seed: 3001
+        rfn1k: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn1k_ce_adam0.0001_ep20_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn1k_ce_adam0.0001_ep20_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn1k_ce_adam0.0001_ep20_bs10_s3001.pt
+              seed: 3001
+        rfn2k: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn2k_ce_adam0.0001_ep20_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn2k_ce_adam0.0001_ep20_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_rfn2k_ce_adam0.0001_ep20_bs10_s3001.pt
+              seed: 3001
+    save_prediction: False

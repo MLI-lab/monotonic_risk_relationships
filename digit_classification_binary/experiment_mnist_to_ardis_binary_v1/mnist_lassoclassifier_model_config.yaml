@@ -1,0 +1,75 @@
+train:
+    model_class: 
+        name: mnist_models.LassoClassifierMNIST
+        kwargs:
+            num_classes: 2
+    loss_function: 
+        name: mnist_models.BinaryClassificationL2Loss
+    optimizer:
+        name: torch.optim.SGD
+        kwargs:
+            lr: 0.001
+            momentum: 0.8
+            #     optimizer:
+            #         name: torch.optim.Adam
+            #         kwargs:
+            #             lr: 0.00001
+    lr_scheduler:
+        name: torch.optim.lr_scheduler.StepLR
+        kwargs:
+            step_size: 10
+            gamma: 0.1
+    num_epochs: 30
+    save_ckpt: True
+    save_dir: ./mnist_binary_ckpt_v1
+evaluate:
+    model_class: 
+        name: mnist_models.LassoClassifierMNIST
+        kwargs:
+            num_classes: 2
+    loss_function: 
+        name: mnist_models.BinaryClassificationL2Loss
+    ckpt:
+        lassoclassifier1: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier1_l2_sgd0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier1_l2_sgd0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier1_l2_sgd0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        lassoclassifier10: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier10_l2_sgd0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier10_l2_sgd0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier10_l2_sgd0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        lassoclassifier100: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier100_l2_sgd0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier100_l2_sgd0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier100_l2_sgd0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        lassoclassifier1000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier1000_l2_sgd0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier1000_l2_sgd0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier1000_l2_sgd0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        lassoclassifier10000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier10000_l2_sgd0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier10000_l2_sgd0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier10000_l2_sgd0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        lassoclassifier100000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier100000_l2_sgd0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier100000_l2_sgd0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_lassoclassifier100000_l2_sgd0.001_ep30_bs10_s3001.pt
+              seed: 3001
+    save_prediction: False

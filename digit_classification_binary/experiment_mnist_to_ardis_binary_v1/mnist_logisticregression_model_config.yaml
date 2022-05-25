@@ -1,0 +1,124 @@
+train:
+    model_class: 
+        name: mnist_models.LogisticRegressionMNIST
+        kwargs:
+            num_classes: 2
+    loss_function: 
+        name: torch.nn.BCELoss
+        #     optimizer:
+        #         name: torch.optim.SGD
+        #         kwargs:
+        #             lr: 0.1
+        #             momentum: 0.8
+    optimizer:
+        name: torch.optim.Adam
+        kwargs:
+            lr: 0.001
+    lr_scheduler:
+        name: torch.optim.lr_scheduler.StepLR
+        kwargs:
+            step_size: 10
+            gamma: 0.1
+    num_epochs: 30
+    save_ckpt: True
+    save_dir: ./mnist_binary_ckpt_v1
+evaluate:
+    model_class: 
+        name: mnist_models.LogisticRegressionMNIST
+        kwargs:
+            num_classes: 2
+    loss_function: 
+        name: torch.nn.BCELoss
+    ckpt:
+        logisticregression: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l2_1: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_1_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_1_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_1_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l2_10: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_10_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_10_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_10_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l2_100: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_100_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_100_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_100_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l2_1000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_1000_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_1000_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_1000_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l2_10000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_10000_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_10000_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_10000_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l2_100000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_100000_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_100000_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l2_100000_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l1_1: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_1_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_1_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_1_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l1_10: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_10_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_10_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_10_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l1_100: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_100_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_100_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_100_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l1_1000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_1000_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_1000_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_1000_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l1_10000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_10000_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_10000_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_10000_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+        logisticregression_l1_100000: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_100000_bce_adam0.001_ep30_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_100000_bce_adam0.001_ep30_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_logisticregression_l1_100000_bce_adam0.001_ep30_bs10_s3001.pt
+              seed: 3001
+    save_prediction: False

@@ -1,0 +1,101 @@
+train:
+    model_class: 
+        name: mnist_models.AlexNetMNIST
+        kwargs:
+            num_classes: 2
+    loss_function: 
+        name: torch.nn.CrossEntropyLoss 
+    # optimizer:
+    #     name: torch.optim.SGD
+    #     kwargs:
+    #         lr: 0.0001
+    #         momentum: 0.8
+    optimizer:
+        name: torch.optim.Adam
+        kwargs:
+            lr: 0.0001
+    lr_scheduler:
+        name: torch.optim.lr_scheduler.StepLR
+        kwargs:
+            step_size: 10
+            gamma: 0.1
+    save_ckpt: True
+    save_dir: ./mnist_binary_ckpt_v1
+    num_epochs: 20
+    # Uncomment the following lines so that intermediate checkpoints are saved, set num_epochs to 1 to stop training once checkpoints of interests are saved
+    #     num_epochs: 1
+    #     ckpt_saving_hook:
+    #         call_freq:
+    #             epoch: 1
+    #             batch: 10
+    #             #         ckpt_id_type: epoch 
+    #         ckpt_id_type: val_acc
+    #         life:
+    #             epoch: 0
+    #             batch: 300
+    #         ckpt_id:
+    #                 #             - epoch: 0
+    #                 #               batch: 0
+    #                 #             - epoch: 0
+    #                 #               batch: 30
+    #                 #             - epoch: 0
+    #                 #               batch: 70
+    #                 #             - epoch: 0
+    #                 #               batch: 130
+    #             - val_acc: 0.5
+    #             - val_acc: 0.6
+    #             - val_acc: 0.7
+    #             - val_acc: 0.8
+    #             - val_acc: 0.9
+evaluate:
+    model_class: 
+        name: mnist_models.AlexNetMNIST
+        kwargs:
+            num_classes: 2
+    loss_function: 
+        name: torch.nn.CrossEntropyLoss 
+    ckpt: 
+        alexnet: 
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep20_bs10_s1009.pt
+              seed: 1009
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep20_bs10_s2003.pt
+              seed: 2003
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep20_bs10_s3001.pt
+              seed: 3001
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s1009.pt.val_acc0.5
+              seed: 1009
+              ckpt_id: val_acc0.5
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s1009.pt.val_acc0.7
+              seed: 1009
+              ckpt_id: val_acc0.7
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s1009.pt.val_acc0.8
+              seed: 1009
+              ckpt_id: val_acc0.8
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s1009.pt.val_acc0.9
+              seed: 1009
+              ckpt_id: val_acc0.9
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s2003.pt.val_acc0.5
+              seed: 2003
+              ckpt_id: val_acc0.5
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s2003.pt.val_acc0.7
+              seed: 2003
+              ckpt_id: val_acc0.7
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s2003.pt.val_acc0.8
+              seed: 2003
+              ckpt_id: val_acc0.8
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s2003.pt.val_acc0.9
+              seed: 2003
+              ckpt_id: val_acc0.9
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s3001.pt.val_acc0.5
+              seed: 3001
+              ckpt_id: val_acc0.5
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s3001.pt.val_acc0.7
+              seed: 3001
+              ckpt_id: val_acc0.7
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s3001.pt.val_acc0.8
+              seed: 3001
+              ckpt_id: val_acc0.8
+            - ckpt_path: ./mnist_binary_ckpt_v1/model_mnist_alexnet_ce_adam0.0001_ep1_bs10_s3001.pt.val_acc0.9
+              seed: 3001
+              ckpt_id: val_acc0.9
+    save_prediction: False

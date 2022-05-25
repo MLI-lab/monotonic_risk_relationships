@@ -1,0 +1,70 @@
+dataset_id: ardis
+train:
+    image_directory: ./ardis/ARDIS_train_2828.csv
+    label_directory: ./ardis/ARDIS_train_labels.csv
+    dataset_class: 
+        name: ardis_data.ARDISDataset
+        kwargs:
+             label_map: {0: 0, 1: 1, 2: 0, 3: 1, 4: 0, 5: 1, 6: 0, 7: 1, 8: 0, 9: 1}
+    num_classes: 2
+    split:
+        begin: 0
+        num_samples: 5600
+    transform:
+        - name: torchvision.transforms.ToPILImage
+        - name: torchvision.transforms.Resize
+          kwargs:
+              size: 75
+        - name: torchvision.transforms.ToTensor
+        - name: torchvision.transforms.Normalize
+          kwargs:
+              mean: [0.0]
+              std: [255.0]
+    batch_size: 10
+    shuffle: True
+val:
+    image_directory: ./ardis/ARDIS_train_2828.csv
+    label_directory: ./ardis/ARDIS_train_labels.csv
+    dataset_class: 
+        name: ardis_data.ARDISDataset
+        kwargs:
+             label_map: {0: 0, 1: 1, 2: 0, 3: 1, 4: 0, 5: 1, 6: 0, 7: 1, 8: 0, 9: 1}
+    num_classes: 2
+    split:
+        begin: 5600
+        num_samples: 6600
+    transform:
+        - name: torchvision.transforms.ToPILImage
+        - name: torchvision.transforms.Resize
+          kwargs:
+              size: 75
+        - name: torchvision.transforms.ToTensor
+        - name: torchvision.transforms.Normalize
+          kwargs:
+              mean: [0.0]
+              std: [255.0]
+    batch_size: 10
+    shuffle: False
+test:
+    image_directory: ./ardis/ARDIS_test_2828.csv
+    label_directory: ./ardis/ARDIS_test_labels.csv
+    dataset_class: 
+        name: ardis_data.ARDISDataset
+        kwargs:
+             label_map: {0: 0, 1: 1, 2: 0, 3: 1, 4: 0, 5: 1, 6: 0, 7: 1, 8: 0, 9: 1}
+    num_classes: 2
+    split:
+        begin: 0
+        num_samples: 1000
+    transform:
+        - name: torchvision.transforms.ToPILImage
+        - name: torchvision.transforms.Resize
+          kwargs:
+              size: 75
+        - name: torchvision.transforms.ToTensor
+        - name: torchvision.transforms.Normalize
+          kwargs:
+              mean: [0.0]
+              std: [255.0]
+    batch_size: 10
+    shuffle: False
