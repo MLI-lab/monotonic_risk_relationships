@@ -11,7 +11,7 @@ Summarize inference output and calculate metrics.
 sh run_summarize_metrics.sh
 ```
 
-### Figure 1(middle, right)
+### Figure 1(left)
 Plot squared error losses.
 ```
 sh run_plot.sh
