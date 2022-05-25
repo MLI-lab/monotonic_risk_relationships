@@ -1,4 +1,4 @@
-Download MNIST and ARDIS datasets to `./mnist` and `./ardis` folder.
+Download [MNIST dataset](http://yann.lecun.com/exdb/mnist/) and [ARDIS dataset IV](https://ardisdataset.github.io/ARDIS/) to `./mnist` and `./ardis` folders.
 
 Train models.
 ```
